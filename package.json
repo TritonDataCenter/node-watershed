@@ -1,0 +1,14 @@
+{
+	"name": "watershed",
+	"version": "0.0.1",
+	"description": "simple websockets (RFC6455) client and server",
+	"main": "./lib/watershed.js",
+	"author": "Joshua M. Clulow <jmc@joyent.com>",
+
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/jclulow/node-watershed.git"
+	},
+
+	"engines": [ "node >=0.8.0" ]
+}
