@@ -44,7 +44,7 @@ srv.on('upgrade', function(req, socket, head) {
 #### Watershed.generateKey()
 
 Returns a random, Base64-encoded 16-byte value suitable for use as the
-`Sec-WebSocket-Key header on an Upgrade request.  See Example usage in
+`Sec-WebSocket-Key` header on an Upgrade request.  See Example usage in
 `connect()`.
 
 #### Watershed.connect(http.ClientResponse, net.Socket, Buffer, String)
