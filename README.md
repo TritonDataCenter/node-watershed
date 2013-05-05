@@ -117,6 +117,27 @@ responds with a PONG frame for each inbound PING frame.
 Emitted for each inbound PONG frame.  The only argument will be a `Buffer`
 containing the nonce in the pong response.
 
+#### WatershedConnection.pipe(watershed)
+
+Automatically forward all frames received on this `WatershedConnection` to
+another `WatershedConnection`, accounting for masking requirements, etc.
+Analogous to `Stream.pipe()`.  Note that events are no longer emitted for
+received frames.  To completely connect two connections, use `pipe` on both:
+
+```
+shed_one.pipe(shed_two);
+shed_one.on('end', function() {
+    console.log('shed_one end');
+    shed_two.end('remote end');
+});
+
+shed_two.pipe(shed_one);
+shed_two.on('end', function() {
+    console.log('shed_two end');
+    shed_one.end('remote end');
+});
+```
+
 #### WatershedConnection.send(data)
 
 Sends a frame through the socket.  The single argument `data` may be a
