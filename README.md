@@ -87,6 +87,11 @@ Emitted once when an error occurs during processing.  The socket will be closed
 and an `'end'` event will follow.  The only argument will be an instance of
 `Error`.
 
+#### Event: 'connectionReset'
+
+Emitted when the remote peer closes the connection without sending us a CLOSE
+frame.  An `'end'` event will follow.
+
 #### Event: 'end'
 
 Emitted once when the socket is closing.
