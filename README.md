@@ -128,6 +128,12 @@ TEXT frame is sent.
 Closes the connection.  The RFC allows a reason for closing the connection to
 be send in the CLOSE frame, though this is optional.
 
+#### WatershedConnection.destroy()
+
+Immediately destroy the underlying socket, without sending a CLOSE frame.  You
+generally want `end()`, rather than this, in order to perform RFC-compliant
+connection shutdowns.
+
 ## License
 
 MIT.
