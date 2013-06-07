@@ -92,9 +92,11 @@ and an `'end'` event will follow.  The only argument will be an instance of
 Emitted when the remote peer closes the connection without sending us a CLOSE
 frame.  An `'end'` event will follow.
 
-#### Event: 'end'
+#### Event: 'end' (code, reason)
 
-Emitted once when the socket is closing.
+Emitted once when the socket is closing.  If we received a graceful CLOSE
+frame from the remote server, we will attempt to process it and pass `code`
+and `reason` -- both of type `String`.
 
 #### Event: 'text'
 
@@ -126,7 +128,8 @@ TEXT frame is sent.
 #### WatershedConnection.end(reason)
 
 Closes the connection.  The RFC allows a reason for closing the connection to
-be send in the CLOSE frame, though this is optional.
+be send in the CLOSE frame, though this is optional.  If passed, `reason`
+should be a `String`.
 
 #### WatershedConnection.destroy()
 

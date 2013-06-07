@@ -10,5 +10,9 @@
 		"url": "git://github.com/jclulow/node-watershed.git"
 	},
 
+	"dependencies": {
+		"readable-stream": "1.0.2"
+	},
+
 	"engines": [ "node >=0.8.0" ]
 }
