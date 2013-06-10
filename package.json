@@ -1,6 +1,6 @@
 {
 	"name": "watershed",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"description": "simple websockets (RFC6455) client and server",
 	"main": "./lib/watershed.js",
 	"author": "Joshua M. Clulow <jmc@joyent.com>",
