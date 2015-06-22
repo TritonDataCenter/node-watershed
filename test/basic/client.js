@@ -15,13 +15,24 @@ var options = {
     }
 };
 var req = http.request(options);
+console.log('req end');
 req.end();
 req.on('upgrade', function(res, socket, head) {
+        console.log('req upgrade');
         socket.setNoDelay(true);
         var wsc = shed.connect(res, socket, head, wskey);
-        wsc.on('text', function(text) {
-                console.log('received text: %s', text);
-                wsc.end('thank you and good night');
+        wsc.on('readable', function () {
+		for (;;) {
+			var o = wsc.read();
+			if (!o)
+				return;
+			if (o.type === 'text') {
+				console.log('recv text: "%s"', o.payload);
+				wsc.end();
+			} else {
+				console.log('recv: %j', o);
+			}
+		}
         });
         wsc.on('end', function(code, reason) {
                 console.log('end! (%s: %s)', code, reason ? reason : '<null>');
