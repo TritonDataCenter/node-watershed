@@ -4,19 +4,23 @@
 	"description": "simple websockets (RFC6455) client and server",
 	"main": "./lib/watershed.js",
 	"author": "Joshua M. Clulow <jmc@joyent.com>",
-
 	"repository": {
 		"type": "git",
 		"url": "git://github.com/jclulow/node-watershed.git"
 	},
-
 	"dependencies": {
-		"assert-plus": "0.1.5"
+		"assert-plus": "0.1.5",
+		"splitduplex": "git://github.com/joyent/node-splitduplex.git#master"
 	},
-
 	"optionalDependencies": {
 		"dtrace-provider": "0.5.0"
 	},
-
-	"engines": [ "node >=0.10.26" ]
+	"engines": [
+		"node >=0.10.26"
+	],
+	"devDependencies": {
+		"jsprim": "^1.2.2",
+                "jshint": "^2.8.0",
+                "jscs": "^1.13.1"
+	}
 }
