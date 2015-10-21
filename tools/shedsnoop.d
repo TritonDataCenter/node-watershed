@@ -11,8 +11,12 @@ watershed*:::send-text
 }
 
 watershed*:::recv-binary,
+watershed*:::recv-ping,
+watershed*:::recv-pong,
 watershed*:::recv-close,
 watershed*:::send-binary,
+watershed*:::send-ping,
+watershed*:::send-pong,
 watershed*:::send-close,
 watershed*:::read-buffer
 {
