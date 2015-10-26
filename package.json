@@ -1,6 +1,6 @@
 {
 	"name": "watershed",
-	"version": "0.3.0",
+	"version": "0.3.1",
 	"description": "simple websockets (RFC6455) client and server",
 	"main": "./lib/watershed.js",
 	"author": "Joshua M. Clulow <jmc@joyent.com>",
@@ -15,7 +15,7 @@
 	},
 
 	"optionalDependencies": {
-		"dtrace-provider": "0.2.8"
+		"dtrace-provider": "0.6.0"
 	},
 
 	"engines": [ "node >=0.8.0" ]
