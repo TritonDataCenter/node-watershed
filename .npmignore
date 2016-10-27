@@ -1,1 +1,12 @@
-test/
+/.gitmodules
+/node_modules
+/tmp
+/npm-debug.log
+/deps
+/examples
+/tools
+/Makefile
+/test
+/docs
+/build
+/watershed-*.tgz
