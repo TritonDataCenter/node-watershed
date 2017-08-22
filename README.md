@@ -64,7 +64,8 @@ var options = {
     headers: {
         'connection': 'upgrade',
         'upgrade': 'websocket',
-        'Sec-WebSocket-Key': wskey
+        'Sec-WebSocket-Key': wskey,
+        'Sec-WebSocket-Version': '13'
     }
 };
 var req = http.request(options);

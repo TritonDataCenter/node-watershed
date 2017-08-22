@@ -1,21 +1,26 @@
 {
 	"name": "watershed",
-	"version": "0.3.3",
+	"version": "0.3.4",
 	"description": "simple websockets (RFC6455) client and server",
 	"main": "./lib/watershed.js",
 	"author": "Joshua M. Clulow <jmc@joyent.com>",
 
 	"repository": {
 		"type": "git",
-		"url": "git://github.com/jclulow/node-watershed.git"
+		"url": "git://github.com/joyent/node-watershed.git"
+	},
+
+	"bugs": {
+		"url": "https://github.com/joyent/node-watershed/issues"
 	},
 
 	"dependencies": {
-		"readable-stream": "1.0.2"
+		"readable-stream": "1.0.2",
+		"dtrace-provider": "~0.8"
 	},
-
-	"optionalDependencies": {
-		"dtrace-provider": "0.6.0"
+	"devDependencies": {
+		"istanbul": "^0.4.0",
+		"tape": "^4.2.2"
 	},
 
 	"engines": [ "node >=0.8.0" ]

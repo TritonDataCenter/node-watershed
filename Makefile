@@ -1,5 +1,5 @@
 #
-# Copyright 2016 Joyent, Inc.
+# Copyright (c) 2017, Joyent, Inc.
 #
 # Makefile for node-watershed
 #
@@ -7,6 +7,8 @@
 #
 # Vars, Tools, Files, Flags
 #
+ISTANBUL	:= node_modules/.bin/istanbul
+NPM		:= npm
 JS_FILES	:= $(shell find lib test -name '*.js')
 JSL_CONF_NODE	 = tools/jsl.node.conf
 JSL_FILES_NODE	 = $(JS_FILES)
@@ -57,4 +59,11 @@ cutarelease: versioncheck
 
 include ./tools/mk/Makefile.deps
 include ./tools/mk/Makefile.targ
+
+$(ISTANBUL): | $(NPM_EXEC)
+	$(NPM) install
+
+test: $(ISTANBUL)
+	$(ISTANBUL) cover --print none test/basic.js
+
 JSL_FLAGS += --nofilelist

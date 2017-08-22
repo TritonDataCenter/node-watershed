@@ -2,6 +2,12 @@
 
 ## not yet released
 
+## 0.3.4
+
+* Receiving a ping would crash the WatershedConnection while trying to
+  reply.
+* Update to latest dtrace-provider
+
 ## 0.3.3
 
 * Handle write-after-end errors when an attempt is made to write to a
