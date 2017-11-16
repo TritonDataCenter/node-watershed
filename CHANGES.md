@@ -6,6 +6,7 @@
 
 * Support for Websocket sub-protocol negotiation
 * Documented `detached`/raw socket argument to `accept()`
+* Change to using `crypto.randomBytes()` for entropy
 
 ## 0.3.4
 
