@@ -2,6 +2,11 @@
 
 ## not yet released
 
+## 0.4.0
+
+* Support for Websocket sub-protocol negotiation
+* Documented `detached`/raw socket argument to `accept()`
+
 ## 0.3.4
 
 * Receiving a ping would crash the WatershedConnection while trying to

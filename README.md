@@ -11,7 +11,7 @@ peculiarities, curiosities, and fallback mechanisms.
 The core of this library is a Factory-style class `Watershed`.  It has several
 static methods:
 
-#### Watershed.accept(http.ServerRequest, net.Socket, Buffer)
+#### Watershed.accept(http.ServerRequest, net.Socket, Buffer[, Boolean[, String[] ]])
 
 Responds to a client's request to Upgrade an HTTP connection to a WebSocket and
 returns a `WatershedConnection`, which is also an `EventEmitter`.
@@ -40,6 +40,19 @@ srv.on('upgrade', function(req, socket, head) {
         /* ... etc ... */
 });
 ```
+
+The additional penultimate boolean argument may be used when implementing a
+websocket-to-websocket proxy.  If set to `true`, then `accept()` returns the
+raw underlying `Socket` of the connection and does not construct a
+`WatershedConnection` instance.  No event handlers will be placed on the
+socket, meaning you are free to continue using it directly (e.g. calling
+`pipe()` on it to join it to a backend socket).
+
+The final list-of-strings argument can be optionally provided to allow for the
+use of WebSocket subprotocol negotiation.  It is a list of case-sensitive
+string names of supported subprotocols.  If given, and protocol negotiation
+takes place, the chosen subprotocol can be found with the `getProtocol()`
+method.
 
 #### Watershed.generateKey()
 
@@ -119,6 +132,11 @@ responds with a PONG frame for each inbound PING frame.
 
 Emitted for each inbound PONG frame.  The only argument will be a `Buffer`
 containing the nonce in the pong response.
+
+#### WatershedConnection.getProtocol()
+
+Returns the negotiated subprotocol, if any, for this connection, as a String.
+If no subprotocol negotiation took place, this method returns `null`.
 
 #### WatershedConnection.send(data)
 
