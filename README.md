@@ -70,7 +70,7 @@ a node.js `http.Client`.  For example:
 
 ```javascript
 var shed = new Watershed();
-var wskey = ws.generateKey();
+var wskey = shed.generateKey();
 var options = {
     port: 8082,
     hostname: '127.0.0.1',
